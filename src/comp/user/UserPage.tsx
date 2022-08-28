@@ -1,4 +1,4 @@
-import { FC, memo, useEffect } from "react";
+import { FC, memo } from "react";
 import { connect } from "react-redux";
 import { user } from "../../TS/modeles/users";
 import { State } from "../../TS/store";
@@ -20,12 +20,12 @@ const UserPage: FC<UserPageProps> = ({user,users,fetchUser,fetchUsers,userLoadin
     const handleClick=(id:number)=>{
        fetchUser(id)
     }
-    useEffect(()=>{
+    useCleanupEffect(()=>{
         fetchUsers(1)
         fetchUsers(2)
-    },[])
+    })
     console.log(userLoading)
-  return <div className="flex flex-col items-center justify-between px-6 gap-y-6 bg-gray-100 min-h-screen">
+  return <div className="flex flex-col items-center  px-6 gap-y-6 bg-gray-100 min-h-screen">
     <UserCard userLoading={userLoading} user={user}/>
     <div className="flex flex-wrap gap-x-2 gap-y-2 justify-between md:w-1/3 ">
        {
