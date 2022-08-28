@@ -1,12 +1,12 @@
 import { Route, Routes, useNavigate } from "react-router-dom"
-import Hello from "./Hello"
+import UserPage from "./comp/user/UserPage"
 
 
 
 function App() {
  
   return <Routes>
-    <Route index element={<Hello/>}></Route>
+    <Route index element={<UserPage/>}></Route>
   </Routes>
 }
 
